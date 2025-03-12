@@ -21,6 +21,7 @@ export default function Profile(){
     const [imageAvatar, setImageAvatar] = useState(null);
     const [avatarUrl, setAvatarUrl] = useState(user && user.avatarUrl);
 
+    console.log(avatarUrl);
     
     function handleFile(e){
         if (e.target.files[0]){
@@ -115,7 +116,7 @@ export default function Profile(){
                             </span>
 
                             <input type='file' accept="image/*" onChange={handleFile}/> <br/>
-                            {avatarUrl === null ? (
+                            {(avatarUrl === null) || (avatarUrl === undefined) ? ( 
                                 <img src={avatar} alt='foto de perfil' width={250} height={250}/>
                             ) : (
                                 <img src={avatarUrl} alt='foto de perfil' width={250} height={250}/>
